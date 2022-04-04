@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+
+    display: flex;
+
+    background: rgb(189, 189, 189);
+}
+
+main {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: calc(100vw - 80px);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 496px;
+    height: 496px;
+
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.112);
+}
+
+.container div {
+    background: white;
+
+    cursor: pointer;
+
+    width: 31px;
+    height: 31px;
+}
+
+.contour {
+    border: 3px rgb(196, 196, 196) solid;
+}
+
+.couleurs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 30px 0;
+
+    height: 100vh;
+    width: 80px;
+    background: rgb(37, 37, 43);
+}
+
+/* COULEURS ET OUTILS */
+
+.couleurs div, .outils div {
+    width: 45px;
+    height: 45px;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+}
+
+.outils div {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.selected {
+    border: 5px rgb(192, 192, 192) solid;
+}
+
+.blanc {background: white !important;}
+.noir {background: black !important;}
+.gris {background: grey !important;}
+.rouge {background: rgb(206, 0, 0) !important;}
+.vert {background: rgb(39, 154, 39) !important;}
+.bleu {background: rgb(46, 71, 199) !important;}
+.jaune {background: rgb(209, 223, 13) !important;}
+.rose {background: rgb(255, 93, 150) !important;}
+
+.cache {
+    display: none !important;
+}
