@@ -1,8 +1,9 @@
 for (let i = 0; i < 256; i++) {
-    document.querySelector(".container").innerHTML += "<div></div>"
+    document.querySelector(".container").innerHTML += "<div draggable='false'></div>"
 }
 
-var selectedColour = "blanc"
+let selectedColour = "noir"
+let isClicking = false;
 let fill = false;
 
 let pixels = document.querySelectorAll(".container div")
@@ -13,8 +14,23 @@ pixels.forEach(e => {
     e.addEventListener("mouseenter", contour)
     e.addEventListener("mouseleave", contour)
 
+    e.addEventListener("mouseenter", draw)
+
     e.addEventListener("click", fillPixel)
 })
+
+document.querySelector(".container").addEventListener("mousedown", () => { isClicking = true; })
+document.querySelector(".container").addEventListener("mouseleave", () => { isClicking = false; })
+document.body.addEventListener("mouseup", () => { isClicking = false; })
+
+function draw() {
+    if (fill == false) {
+        if (isClicking) {
+            this.classList.remove("blanc", "noir", "gris", "rouge", "vert", "bleu", "jaune", "rose")
+            this.classList.add(selectedColour)
+        }
+    }
+}
 
 function contour() {
     this.classList.toggle("contour");
@@ -55,12 +71,9 @@ function swapTool() {
 
 function fillPixel() {
     if (fill == true) {
-        pixels.forEach(e=> {
+        pixels.forEach(e => {
             e.classList.remove("blanc", "noir", "gris", "rouge", "vert", "bleu", "jaune", "rose")
             e.classList.add(selectedColour)
         })
-    } else {
-        this.classList.remove("blanc", "noir", "gris", "rouge", "vert", "bleu", "jaune", "rose")
-        this.classList.add(selectedColour)
     }
 }
