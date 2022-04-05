@@ -20,7 +20,7 @@ pixels.forEach(e => {
 })
 
 document.querySelector(".container").addEventListener("mousedown", () => { isClicking = true; })
-document.querySelector(".container").addEventListener("mouseleave", () => { isClicking = false; })
+document.addEventListener("mouseleave", () => { isClicking = false; })
 document.body.addEventListener("mouseup", () => { isClicking = false; })
 
 function draw() {
@@ -75,5 +75,8 @@ function fillPixel() {
             e.classList.remove("blanc", "noir", "gris", "rouge", "vert", "bleu", "jaune", "rose")
             e.classList.add(selectedColour)
         })
+    } else {
+        this.classList.remove("blanc", "noir", "gris", "rouge", "vert", "bleu", "jaune", "rose")
+        this.classList.add(selectedColour)
     }
 }
