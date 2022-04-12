@@ -10,18 +10,20 @@ let pixels = document.querySelectorAll(".container div")
 let couleurs = document.querySelectorAll(".couleurs>div:not(.outils)")
 let outils = document.querySelectorAll(".outils div")
 
+document.querySelector(".container").addEventListener("mousedown", () => { isClicking = true; })
+document.addEventListener("mouseleave", () => { isClicking = false; })
+document.body.addEventListener("mouseup", () => { isClicking = false; })
+
 pixels.forEach(e => {
     e.addEventListener("mouseenter", contour)
     e.addEventListener("mouseleave", contour)
+
+    e.addEventListener("mousedown", fillPixel)
 
     e.addEventListener("mouseenter", draw)
 
     e.addEventListener("click", fillPixel)
 })
-
-document.querySelector(".container").addEventListener("mousedown", () => { isClicking = true; })
-document.addEventListener("mouseleave", () => { isClicking = false; })
-document.body.addEventListener("mouseup", () => { isClicking = false; })
 
 function draw() {
     if (fill == false) {
